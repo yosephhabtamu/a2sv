@@ -22,7 +22,18 @@ class Result {
 
     public static void insertionSort1(int n, List<Integer> arr) {
         // Write your code here
+        int temp = arr.get(n - 1);
+        String result = "";
+        for (int i = 0; i < n; i++) {
+            if (temp < arr.get((n - i) - 1)) {
+                arr.set(n - i, arr.get((n - i) - 1));
 
+            } else {
+                arr.set(n - i, temp);
+                System.out.println(arr);
+            }
+
+        }
     }
 
 }
