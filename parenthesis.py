@@ -1,26 +1,25 @@
 class Solution:
-    def isValid(self, s: str) -> bool:
-        dict = {'{':'}', '(':')', '[':']'}
-        ls = []
-        ls.append(s[0])
-        for i in s:
-            for j in dict.keys():
-                print(ls)
-                if i == j:
-                    ls.append(i)
+    def isValid(self, s):
+        parenthesis = {'(': ')', '[': ']', '{': '}'}
+        stack = []
+        if len(s) == 1:
+            return True if s[0] in parenthesis.keys() else False
+
+        for i in range(len(s)):
+            if s[i] in parenthesis.keys():
+                stack.append(s[i])
+            else:
+                if stack !=[]:
+                    temp = stack.pop() 
+                else :
+                    return False
+                if parenthesis[temp] == s[i]:
+                    continue
                 else:
-                    temp = ls.pop()
-                    if dict[temp] == i:
-                        continue
-                    else:
-                        return False
-        if ls == []:
-            return True
-        return False
+                    return False
 
-                
+        return True if stack == [] else False
 
-solution=  Solution()
-print(solution.isValid('[({})]'))
-        
-  
+
+solution = Solution()
+print(solution.isValid(']('))
