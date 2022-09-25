@@ -1,6 +1,6 @@
 
 class Solution:
-    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+    def targetIndices(self, nums, target: int):
         for i in range(len(nums)):
             for j in range(len(nums)):
                 if nums[i] < nums[j]:
